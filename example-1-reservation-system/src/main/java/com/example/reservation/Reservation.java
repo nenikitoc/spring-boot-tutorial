@@ -3,7 +3,7 @@ package com.example.reservation;
 import java.time.LocalDate;
 
 public record Reservation (
-        Long Id,
+        Long id,
         Long userId,
         Long roomId,
         LocalDate startDate,
