@@ -153,6 +153,26 @@ __Spring Boot Starter WEB__ - стартер из Spring Boot, который д
 * DELETE -> @DeleteMapping("/users/{id}")
 * PATCH -> @PatchMapping
 
+Вспомогательные классы и аннотации:
+* `@RequestBody` - заполняет класс после себя данными из http-запроса
+* `ResponseEntity<>` - позволяет управлять ответом, пример: `ResponseEntity.header("test-header", "123").status(201).body(response)`
+
+Решение проблемы единства интерфейса:
+в аннотацию @GetMapping автоматически добавиться путь из @RequestMapping, и мы получим @GetMapping("/reservation/{id}"), соответсвенно можно сделать с каждым запросом в классе.
+```Java
+@RestController
+@RequestMapping("/reservation")
+public class ReservationController{
+  @GetMapping("/{id}")
+  public ResponseEntity<Reservation> getReservationById(
+            @PathVariable("id") Long id
+    ){
+        log.info("Called getReservationById: id = " + id);
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.getReservationById(id));
+    }
+}
+```
+
 
 ## Команда проекта
 Оставьте пользователям контакты и инструкции, как связаться с командой разработки.
