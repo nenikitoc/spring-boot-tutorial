@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 // Приложение для бронирования отелей
 @SpringBootApplication
-public class Example1ReservationSystemApplication {
+public class ReservationSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Example1ReservationSystemApplication.class, args);
+		SpringApplication.run(ReservationSystemApplication.class, args);
 	}
 
 }
